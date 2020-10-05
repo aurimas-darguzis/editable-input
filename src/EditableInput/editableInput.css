@@ -1,0 +1,59 @@
+.editable-input-container {
+  border: 1px dotted #61dafb;
+  display: flex;
+  justify-content: space-between;
+  min-width: 10em;
+  padding: 12px 10px;
+}
+
+input {
+  font-size: calc(10px + 2vmin);
+  width: 95%;
+  position: relative;
+  right: 9px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.indicator-icon {
+  width: 33px;
+}
+
+.indicator-icon img {
+  width: 27px;
+}
+
+.loading-logo {
+  position: relative;
+  top: 4px;
+}
+
+.success-logo {
+  position: relative;
+  left: 5px;
+}
+
+.error-message {
+  width: 273px;
+  font-size: 0.5em;
+  position: relative;
+  right: 254px;
+  top: 1px;
+  text-align: left;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loading-logo {
+    animation: loading-logo-spin infinite 2.8s linear;
+  }
+}
+
+@keyframes loading-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
