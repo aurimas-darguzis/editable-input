@@ -2,7 +2,7 @@
 
 Run `yarn` or `npm install` in the root directory. Then run `yarn start` or `npm start`
 
-## Descriptions
+## Description
 
 Created component to edit values inline. This component should appear as a normal text on the page, editable when clicked and displaying result of the action triggered by edit.
 
