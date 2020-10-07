@@ -64,9 +64,9 @@ export default function EditableInput() {
   );
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleContainerClick);
+    document.addEventListener("click", handleContainerClick);
     return () => {
-      document.removeEventListener("mousedown", handleContainerClick);
+      document.removeEventListener("click", handleContainerClick);
     };
   }, [data, editable, handleContainerClick]);
 
@@ -87,17 +87,22 @@ export default function EditableInput() {
   };
 
   return (
-    <div ref={editableEl} className='editable-input-container'>
+    <div
+      ref={editableEl}
+      className='editable-input-container'
+      data-testid='editable-input-container'
+    >
       <div onClick={handleOnInputClick}>
         {editable ? (
           <input
             type='text'
             value={data}
+            data-testid={`editable-${editable}`}
             onChange={handleInputChange}
             onKeyDown={handleEnterPress}
           />
         ) : (
-          <span>{data}</span>
+          <span data-testid={`editable-${editable}`}>{data}</span>
         )}
       </div>
       <div className='indicator-icon'>
@@ -106,19 +111,30 @@ export default function EditableInput() {
             src={loadingIcon}
             alt='loading spinner'
             className='loading-logo'
+            data-testid='loading-logo'
           />
         ) : (
           <></>
         )}
         {success ? (
-          <img src={checkIcon} alt='check icon' className='success-logo' />
+          <img
+            src={checkIcon}
+            alt='check icon'
+            className='success-logo'
+            data-testid='success-logo'
+          />
         ) : (
           <></>
         )}
         {error ? (
           <>
-            <img src={errorIcon} alt='error icon' />
-            <div className='error-message'>{error}</div>
+            <img src={errorIcon} alt='error icon' data-testid='error-logo' />
+            <div
+              className='error-message'
+              data-testid='error-message-container'
+            >
+              <span data-testid='error-message'>{error}</span>
+            </div>
           </>
         ) : (
           <></>
